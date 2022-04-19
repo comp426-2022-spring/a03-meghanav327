@@ -30,9 +30,10 @@ app.get('/app/flip', (req, res) => {
 app.get('/app/flips/:number/', (req, res) => {
     res.status(200);
     var flips = req.params.number;
+    var results = coinFlips(flips)
     res.json({
         'raw': flips,
-        'summary': countFlips(flips)
+        'summary': countFlips(results)
     })
 });
 
