@@ -22,9 +22,29 @@ app.get('/app/', (req, res) => {
 });
 
 app.get('/app/flip', (req, res) => {
-    res.statusCode = 200;
+    res.status(200);
     res.type('text/plain')
     res.json({ 'flip': coinFlip() })
+});
+
+app.get('/app/flips/:number', (req, res) => {
+    res.status(200);
+    const flips = req.params.number || 1;
+    const results = coinFlips(flips);
+    res.json({
+        'raw': flips,
+        'summary': results
+    })
+});
+
+app.get('/app/flip/call/heads/', (req, res) => {
+    res.status(200);
+    res.json(flipACoin('heads'));
+});
+
+app.get('/app/flip/call/tails/', (req, res) => {
+    res.status(200);
+    res.json(flipACoin('tails'));
 });
 
 app.use(function(req, res) {
