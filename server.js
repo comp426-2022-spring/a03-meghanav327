@@ -32,7 +32,7 @@ app.get('/app/flips/:number/', (req, res) => {
     var flips = req.params.number;
     var results = coinFlips(flips)
     res.json({
-        'raw': flips,
+        'raw': results,
         'summary': countFlips(results)
     })
 });
