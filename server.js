@@ -3,8 +3,8 @@ import express from 'express';
 
 import { coinFlips, countFlips, coinFlip, flipACoin } from "./modules/coin.mjs";
 
-const express = require('express')
-const app = express()
+//const express = require('express');
+const app = express();
 
 const arg = require('minimist')(process.argv.slice(2))
 args['port']
